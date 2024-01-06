@@ -1,0 +1,91 @@
+.giant {
+  padding: 16px;
+  font-size: 18px;
+  height: 56px;
+}
+
+.large {
+  padding: 12px;
+  font-size: 16px;
+  height: 48px;
+}
+
+.medium {
+  padding: 10px;
+  font-size: 13px;
+  height: 40px;
+}
+
+.small {
+  padding: 8px;
+  font-size: 12px;
+  height: 32px;
+}
+
+.tiny {
+  padding: 6px;
+  font-size: 10px;
+  height: 26px;
+}
+
+.filled {
+  background-color: var(--color-basic-500);
+  color: var(--color-basic-100);
+  border: none;
+}
+
+.filled:hover {
+  background-color: var(--color-basic-600);
+}
+
+.filled:focus {
+  background-color: var(--color-basic-700);
+}
+
+.outline {
+  background-color: var(--color-basic-transparent-008);
+  border: 1px solid var(--color-basic-500);
+  color: var(--color-basic-500);
+}
+
+.outline:hover {
+  background-color: var(--color-basic-transparent-016);
+}
+
+.outline:focus {
+  background-color: var(--color-basic-transparent-032);
+}
+
+.ghost {
+  background-color: transparent;
+  text-transform: capitalize;
+  border: none;
+  color: var(--color-basic-900);
+}
+
+.ghost:hover {
+  background-color: var(--color-basic-filled-300);
+}
+
+.ghost:focus {
+  background-color: var(--color-basic-filled-400);
+}
+
+.disabled {
+  background-color: var(--color-basic-transparent-008);
+  border: 1px solid var(--color-basic-filled-500);
+  color: var(--color-basic-filled-500);
+  cursor: not-allowed;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}

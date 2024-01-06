@@ -1,0 +1,178 @@
+:root {
+  /* Typography */
+  --typography-family: "Roboto", sans-serif;
+
+  /* Typography Colors */
+  --color-typography-default: #222b45;
+  --color-typography-alternative: #ffffff;
+  --color-typography-link: #0ab414;
+  --color-typography-hint: #8f9bb3;
+  --color-typography-disabled: rgba(143, 155, 179, 0.48);
+
+  /* Headings */
+  --h1-size: 36px;
+  --h1-line-height: 2.2;
+  --h1-weight: 700;
+
+  --h2-size: 32px;
+  --h2-line-height: 2;
+  --h2-weight: 700;
+
+  --h3-size: 30px;
+  --h3-line-height: 1.8;
+  --h3-weight: 700;
+
+  --h4-size: 26px;
+  --h4-line-height: 1.6;
+  --h4-weight: 700;
+
+  --h5-size: 22px;
+  --h5-line-height: 1.4;
+  --h5-weight: 700;
+
+  --h6-size: 18px;
+  --h6-line-height: 1.2;
+  --h6-weight: 700;
+
+  /* Subtitles */
+  --s1-size: 15px;
+  --s1-line-height: 1.6;
+  --s1-weight: 400;
+
+  --s2-size: 13px;
+  --s2-line-height: 1.6;
+  --s2-weight: 400;
+
+  /* Paragraphs */
+  --p1-size: 15px;
+  --p1-line-height: 1.6;
+  --p1-weight: 400;
+
+  --p2-size: 13px;
+  --p2-line-height: 1.6;
+  --p2-weight: 400;
+
+  /* Captions */
+  --c1-size: 12px;
+  --c1-line-height: 1.6;
+  --c1-weight: 400;
+
+  --c2-size: 12px;
+  --c2-line-height: 1.6;
+  --c2-weight: 400;
+
+  --label-size: 12px;
+  --label-line-height: 1.2;
+  --label-weight: 400;
+
+  --link-size: inherit;
+  --link-line-height: inherit;
+  --link-weight: inherit;
+
+  /* Color Palette */
+  /* Primary */
+  --color-primary-100: #d9fbcb;
+  --color-primary-200: #adf799;
+  --color-primary-300: #74e864;
+  --color-primary-400: #41d23d;
+  --color-primary-500: #0ab414;
+  --color-primary-600: #079a1d;
+  --color-primary-700: #058122;
+  --color-primary-800: #036824;
+  --color-primary-900: #015625;
+  --color-primary-transparent-008: rgba(184, 255, 221, 0.08);
+  --color-primary-transparent-016: rgba(184, 255, 221, 0.16);
+  --color-primary-transparent-024: rgba(128, 255, 142, 0.24);
+
+  /* Basic */
+  --color-basic-100: #ffffff;
+  --color-basic-200: #f7f9fc;
+  --color-basic-300: #edf1f7;
+  --color-basic-400: #e4e9f2;
+  --color-basic-500: #c5cee0;
+  --color-basic-600: #8f9bb3;
+  --color-basic-700: #2e3a59;
+  --color-basic-800: #222b45;
+  --color-basic-900: #192038;
+  --color-basic-1000: #151a30;
+  --color-basic-1100: #101426;
+  --color-basic-transparent-008: rgba(143, 155, 179, 0.08);
+  --color-basic-transparent-016: rgba(143, 155, 179, 0.16);
+  --color-basic-transparent-024: rgba(143, 155, 179, 0.24);
+  --color-basic-transparent-032: rgba(143, 155, 179, 0.32);
+  --color-basic-transparent-040: rgba(143, 155, 179, 0.4);
+  --color-basic-transparent-048: rgba(143, 155, 179, 0.48);
+
+  /* Danger */
+  --color-danger-100: #fde0d3;
+  --color-danger-200: #fbbba8;
+  --color-danger-300: #f48d7b;
+  --color-danger-400: #ea6159;
+  --color-danger-500: #dd272d;
+  --color-danger-600: #be1c30;
+  --color-danger-700: #9f1330;
+  --color-danger-800: #800c2e;
+  --color-danger-900: #6a072d;
+  --color-danger-transparent-008: rgba(255, 61, 113, 0.08);
+  --color-danger-transparent-016: rgba(255, 61, 113, 0.16);
+  --color-danger-transparent-024: rgba(255, 61, 113, 0.24);
+  --color-danger-transparent-032: rgba(255, 61, 113, 0.32);
+  --color-danger-transparent-040: rgba(255, 61, 113, 0.4);
+  --color-danger-transparent-048: rgba(255, 61, 113, 0.48);
+
+  /* Info */
+  --color-info-100: #d5e5fe;
+  --color-info-200: #acc9fe;
+  --color-info-300: #83a9fd;
+  --color-info-400: #6391fb;
+  --color-info-500: #3167f9;
+  --color-info-600: #234ed6;
+  --color-info-700: #1839b3;
+  --color-info-800: #0f2790;
+  --color-info-900: #091a77;
+  --color-info-transparent-008: rgba(0, 149, 255, 0.08);
+  --color-info-transparent-016: rgba(0, 149, 255, 0.16);
+  --color-info-transparent-024: rgba(0, 149, 255, 0.24);
+  --color-info-transparent-032: rgba(0, 149, 255, 0.32);
+  --color-info-transparent-040: rgba(0, 149, 255, 0.4);
+  --color-info-transparent-048: rgba(0, 149, 255, 0.48);
+
+  /* Warning */
+  --color-warning-100: #fefbcb;
+  --color-warning-200: #fef798;
+  --color-warning-300: #fef265;
+  --color-warning-400: #fdec3f;
+  --color-warning-500: #fce300;
+  --color-warning-600: #d8c000;
+  --color-warning-700: #b59f00;
+  --color-warning-800: #927f00;
+  --color-warning-900: #786700;
+  --color-warning-transparent-008: rgba(254, 251, 203, 0.08);
+  --color-warning-transparent-016: rgba(254, 251, 203, 0.16);
+  --color-warning-transparent-024: rgba(254, 251, 203, 0.24);
+  --color-warning-transparent-032: rgba(254, 251, 203, 0.32);
+  --color-warning-transparent-040: rgba(254, 251, 203, 0.4);
+  --color-warning-transparent-048: rgba(254, 251, 203, 0.48);
+
+  /* Success */
+  --color-success-100: #cafcd8;
+  --color-success-200: #96fabb;
+  --color-success-300: #61f2a5;
+  --color-success-400: #39e69c;
+  --color-success-500: #00d68f;
+  --color-success-600: #00b88d;
+  --color-success-700: #009a85;
+  --color-success-800: #007c77;
+  --color-success-900: #006066;
+  --color-success-transparent-008: rgba(202, 252, 216, 0.08);
+  --color-success-transparent-016: rgba(202, 252, 216, 0.16);
+  --color-success-transparent-024: rgba(202, 252, 216, 0.24);
+  --color-success-transparent-032: rgba(202, 252, 216, 0.32);
+  --color-success-transparent-040: rgba(202, 252, 216, 0.4);
+  --color-success-transparent-048: rgba(202, 252, 216, 0.48);
+
+  /* Misc */
+  --border-radius: 4px;
+  --shadow: ""; /* You may want to define this further */
+  --transition: 300ms;
+}
