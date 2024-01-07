@@ -1,7 +1,4 @@
 :root {
-  /* Typography */
-  --typography-family: "Roboto", sans-serif;
-
   /* Typography Colors */
   --color-typography-default: #222b45;
   --color-typography-alternative: #ffffff;
@@ -175,4 +172,9 @@
   --border-radius: 4px;
   --shadow: ""; /* You may want to define this further */
   --transition: 300ms;
+  --main-width: 680px;
+}
+
+body {
+  margin: 0;
 }

@@ -1,0 +1,15 @@
+.navigation {
+  background-color: var(--color-basic-100);
+  border-bottom: 1px solid var(--color-basic-400);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.searchContainer {
+  width: var(--main-width);
+  position: absolute;
+  left: calc(50% - 390px);
+}
