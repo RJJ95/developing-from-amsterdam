@@ -188,6 +188,7 @@ h1,
 h2,
 h3,
 h4,
+h5,
 p {
   margin: 0;
 }
@@ -216,6 +217,12 @@ h4 {
   line-height: var(--h4-line-height);
 }
 
+h5 {
+  font-weight: var(--h5-weight);
+  font-size: var(--h5-size);
+  line-height: var(--h5-line-height);
+}
+
 a {
   text-decoration: none;
   color: var(--color-typography-default);
@@ -233,7 +240,6 @@ label {
 }
 
 main {
-  padding: 50px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -242,8 +248,22 @@ main {
 
 section {
   width: 680px;
+  padding: 50px 0;
 }
 
-main section:not(:last-child) {
-  margin-bottom: 50px;
+pre {
+  line-height: 1.7;
+  padding: 10px;
+  background-color: var(--color-basic-200);
+  border-radius: 4px;
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: var(--color-basic-300);
+  height: 1px;
+  margin: 0;
 }

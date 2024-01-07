@@ -1,0 +1,19 @@
+.image {
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: var(--s1-size);
+  line-height: var(--s1-line-height);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.container {
+  width: 330px;
+}
