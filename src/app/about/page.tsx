@@ -1,14 +1,11 @@
-import Button from "@/components/button";
 import client from "@/contentful/client";
 import BlogPost from "@/types/blog-post";
 import { Asset } from "contentful";
-import Image from "next/image";
 import { cache } from "react";
-import styles from "./about.module.css";
 import Lead from "@/components/lead";
 import PostPreviewLarge from "@/components/post-preview-large";
 
-export const getData = cache(async () => {
+const getData = cache(async () => {
   const { items } = await client.getEntries<BlogPost>({
     content_type: "blog-post",
     order: ["sys.createdAt"],
@@ -56,6 +53,7 @@ export default async function About() {
               altText={
                 (item.fields.image! as Asset).fields.description as string
               }
+              slug={item.fields.slug as string}
             />
           );
         })}

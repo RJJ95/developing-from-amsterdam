@@ -1,0 +1,12 @@
+.metadata {
+  display: flex;
+  gap: 30px;
+  padding: 30px 0 35px;
+}
+
+.tag {
+  border-radius: 25px;
+  padding: 4px 16px;
+  background-color: var(--color-basic-300);
+  text-transform: capitalize;
+}

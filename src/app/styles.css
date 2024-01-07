@@ -60,7 +60,7 @@
 
   --label-size: 12px;
   --label-line-height: 1.2;
-  --label-weight: 400;
+  --label-weight: 600;
 
   --link-size: inherit;
   --link-line-height: inherit;
@@ -218,10 +218,18 @@ h4 {
 
 a {
   text-decoration: none;
+  color: var(--color-typography-default);
 }
 
 p {
   text-align: justify;
+}
+
+label {
+  font-weight: var(--label-weight);
+  font-size: var(--label-size);
+  line-height: var(--label-line-height);
+  text-transform: uppercase;
 }
 
 main {
