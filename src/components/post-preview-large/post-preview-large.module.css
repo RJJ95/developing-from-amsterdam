@@ -1,0 +1,10 @@
+.image {
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: var(--s1-size);
+  line-height: var(--s1-line-height);
+}

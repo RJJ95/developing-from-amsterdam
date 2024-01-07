@@ -11,5 +11,5 @@
 .searchContainer {
   width: var(--main-width);
   position: absolute;
-  left: calc(50% - 390px);
+  left: calc(50% - 340px);
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "../button";
 import Input from "../input";
 import styles from "./navigation.module.css";
+import Link from "next/link";
 
 const Navigation = () => {
   const [search, setSearch] = useState("");
@@ -20,11 +21,9 @@ const Navigation = () => {
           id="search-input"
         />
       </div>
-      <Button
-        text="Developing in Amsterdam"
-        variant="ghost"
-        onClick={() => null}
-      />
+      <Link href="/about">
+        <Button text="Developing in Amsterdam" variant="ghost" />
+      </Link>
     </nav>
   );
 };
