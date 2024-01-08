@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import "./styles.css";
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -18,7 +19,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={roboto.className}>
         <Navigation />
-        {children}{" "}
+        {children}
+        <Footer />
       </body>
     </html>
   );

@@ -35,6 +35,7 @@ export default async function About() {
           me in exploring the limitless possibilities of code!
         </Lead>
       </section>
+      <hr />
       <section>
         <h1>Latest articles</h1>
         {items.map((item) => {
