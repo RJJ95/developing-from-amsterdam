@@ -62,9 +62,7 @@ export default async function BlogPost({
         </div>
         <Image
           className={styles.image}
-          src={`https://${
-            (post.fields.image! as Asset).fields.file!.url as string
-          }`}
+          src={(post.fields.image! as Asset).fields.file!.url as string}
           alt={post.fields.description as string}
           width={680}
           height={200}
