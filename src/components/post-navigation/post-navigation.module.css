@@ -1,0 +1,52 @@
+.languageHeader {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.postNavigationButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.postNavigationButton:disabled {
+  cursor: no-drop;
+  fill: var(--color-basic-600);
+}
+
+.postNavigationButton:disabled img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.postsContainer {
+  transition: transform 0.5s ease;
+  display: flex;
+  gap: 50px;
+}
+
+.postWrapper {
+  display: inline-block;
+}
+
+.fullWidthBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background-color: var(--color-basic-200);
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
+}

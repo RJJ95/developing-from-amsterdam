@@ -14,13 +14,14 @@ const PostPreviewLarge: FC<PostPreviewLargeProps> = ({
 }) => (
   <div>
     <Link href={slug}>
-      <Image
-        className={styles.image}
-        src={`https://${imageUrl}`}
-        alt={altText}
-        width={680}
-        height={200}
-      />
+      <div className={styles.imageContainer}>
+        <Image
+          className={styles.image}
+          src={`https://${imageUrl}`}
+          alt={altText}
+          fill
+        />
+      </div>
     </Link>
 
     <Link href={slug}>

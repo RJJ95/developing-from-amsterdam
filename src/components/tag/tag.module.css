@@ -1,0 +1,26 @@
+.tag {
+  border-radius: 25px;
+  padding: 4px 16px;
+  background-color: var(--color-basic-300);
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.javascript {
+  background: #ffd600;
+}
+
+.kotlin {
+  background: linear-gradient(
+    43.78deg,
+    #c757a7 14.31%,
+    #ca5a9e 17.55%,
+    #d66779 31.5%,
+    #e17357 44.81%,
+    #e97c3a 57.1%,
+    #ef8324 68.16%,
+    #f28817 77.59%,
+    #f48912 84.29%
+  );
+  color: var(--color-typography-alternative);
+}

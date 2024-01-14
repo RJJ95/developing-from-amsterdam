@@ -4,6 +4,7 @@ import { Asset } from "contentful";
 import { cache } from "react";
 import Lead from "@/components/lead";
 import PostPreviewLarge from "@/components/post-preview-large";
+import styles from "./about.module.css";
 
 const getData = cache(async () => {
   const { items } = await client.getEntries<BlogPost>({
@@ -38,17 +39,13 @@ export default async function About() {
       <hr />
       <section>
         <h1>Latest articles</h1>
-        {items.map((item) => {
-          const imageUrl = (item.fields.image! as Asset).fields.file!
-            .url as string;
-          if (!imageUrl) {
-            return null;
-          }
-
-          return (
+        <div className={styles.postPreviewContainer}>
+          {items.map((item) => (
             <PostPreviewLarge
               key={item.sys.id}
-              imageUrl={imageUrl}
+              imageUrl={
+                (item.fields.image! as Asset).fields.file!.url as string
+              }
               title={item.fields.blogTitle as string}
               previewText={item.fields.subTitle as string}
               altText={
@@ -56,8 +53,8 @@ export default async function About() {
               }
               slug={item.fields.slug as string}
             />
-          );
-        })}
+          ))}
+        </div>
       </section>
     </main>
   );

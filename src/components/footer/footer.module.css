@@ -12,3 +12,20 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.navItem {
+  background-color: transparent;
+  text-transform: capitalize;
+  border: none;
+  color: var(--color-basic-900);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+}

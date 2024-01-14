@@ -1,28 +1,51 @@
 "use client";
 
-import { useState } from "react";
-import Button from "../button";
-import Input from "../input";
+import { useState, useEffect } from "react";
+import { InstantSearchNext } from "react-instantsearch-nextjs";
+import { Autocomplete } from "../autocomplete";
 import styles from "./navigation.module.css";
 import Link from "next/link";
+import algoliaClient from "@/algolia/client";
+import Image from "next/image";
+import homeIcon from "@/assets/icons/home.svg";
 
 const Navigation = () => {
-  const [search, setSearch] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(/iPhone|iPod|Android/i.test(navigator.userAgent));
+  }, []);
+
+  if (isMobile) {
+    return (
+      <nav className={styles.mobileMenu}>
+        <Link className={styles.home} href="/">
+          <Image src={homeIcon} alt="menu-icon" />
+        </Link>
+        <div className={styles.searchContainerMobile}>
+          <InstantSearchNext
+            searchClient={algoliaClient}
+            indexName="blog-posts"
+          >
+            <Autocomplete />
+          </InstantSearchNext>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className={styles.navigation}>
-      <Button text="Menu" variant="ghost" onClick={() => null} />
+      <Link className={styles.navItem} href="/">
+        Home
+      </Link>
       <div className={styles.searchContainer}>
-        <Input
-          value={search}
-          onChange={setSearch}
-          placeholder="What's your question about?"
-          disabled={false}
-          id="search-input"
-        />
+        <InstantSearchNext searchClient={algoliaClient} indexName="blog-posts">
+          <Autocomplete />
+        </InstantSearchNext>
       </div>
-      <Link href="/about">
-        <Button text="Developing in Amsterdam" variant="ghost" />
+      <Link className={styles.navItem} href="/about">
+        Developing from Amsterdam
       </Link>
     </nav>
   );

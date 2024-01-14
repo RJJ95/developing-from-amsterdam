@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import "./styles.css";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <Footer />
       </body>
+      <GoogleTagManager gtmId="GTM-KT6R8H64" />
     </html>
   );
 }

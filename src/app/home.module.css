@@ -1,0 +1,19 @@
+.languageHeader {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.postNavigationButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,7 +1,7 @@
 .navigation {
   background-color: var(--color-basic-100);
   border-bottom: 1px solid var(--color-basic-400);
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,4 +12,71 @@
   width: var(--main-width);
   position: absolute;
   left: calc(50% - 340px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  border: 1px solid var(--color-basic-400);
+  border-radius: 4px;
+  padding: 10px 16px;
+  outline: none;
+  width: 100%;
+  background-image: url("../../assets/icons/search.svg");
+  background-repeat: no-repeat;
+  background-position: 99% center;
+  background-color: var(--color-basic-200);
+}
+
+.input:hover {
+  border-color: var(--color-basic-500);
+}
+
+.input:focus {
+  border-color: var(--color-basic-600);
+}
+
+.input:disabled {
+  background-color: var(--color-basic-200);
+  border-color: var(--color-basic-400);
+  color: var(--color-basic-500);
+}
+
+.input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.none {
+  display: none;
+}
+
+.navItem {
+  background-color: transparent;
+  text-transform: capitalize;
+  border: none;
+  color: var(--color-basic-900);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.mobileMenu {
+  padding: 10px 15px 10px 10px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--color-basic-400);
+}
+
+.home {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.searchContainerMobile {
+  width: 100%;
 }
