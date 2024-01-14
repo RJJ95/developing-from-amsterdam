@@ -8,6 +8,7 @@ import "highlight.js/styles/intellij-light.css";
 import PostPreviewSmall from "@/components/post-preview-small";
 import Tag from "@/components/tag";
 import { markdownToHtml } from "@/utils/markdown-to-html";
+import contentfulImageLoader from "@/utils/image-loader";
 
 export async function generateStaticParams() {
   const { items } = await client.getEntries({
@@ -61,10 +62,9 @@ export default async function BlogPost({
           <label>{readingTime(post.fields.body as string)}</label>
         </div>
         <Image
+          loader={contentfulImageLoader}
           className={styles.image}
-          src={`https://${
-            (post.fields.image! as Asset).fields.file!.url as string
-          }`}
+          src={(post.fields.image! as Asset).fields.file!.url as string}
           alt={post.fields.description as string}
           width={680}
           height={200}

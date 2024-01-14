@@ -2,6 +2,6 @@
 
 import type { ImageLoaderProps } from "next/image";
 
-export default function myImageLoader({ src }: ImageLoaderProps) {
+export default function contentfulImageLoader({ src }: ImageLoaderProps) {
   return `https://${src}`;
 }
