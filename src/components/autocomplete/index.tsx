@@ -30,7 +30,7 @@ export function Autocomplete(props: UseAutocompleteProps) {
 
   useEffect(() => {
     refine("");
-  }, [pathname]);
+  }, [pathname, refine]);
 
   return (
     <div ref={containerRef} className={styles.container}>

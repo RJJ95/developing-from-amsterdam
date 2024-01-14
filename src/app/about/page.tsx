@@ -26,14 +26,14 @@ export default async function About() {
         <Lead>
           Hi there, I am a passionate developer from Amsterdam with a knack for
           Javascript, TypeScript, React, Azure, Kotlin, and functional
-          programming. Throughout my journey, I've encountered numerous
+          programming. Throughout my journey, I&apos;ve encountered numerous
           challenges and learned valuable lessons that have significantly shaped
-          my expertise. Inspired by the hurdles I've overcome, I decided to
+          my expertise. Inspired by the hurdles I&apos;ve overcome, I decided to
           create this blog to share my knowledge and experiences. My aim is to
           simplify the complex world of development for others, providing clear,
           concise, and practical articles that make your coding life easier and
-          more efficient. Whether you're a seasoned coder or just starting, join
-          me in exploring the limitless possibilities of code!
+          more efficient. Whether you&apos;re a seasoned coder or just starting,
+          join me in exploring the limitless possibilities of code!
         </Lead>
       </section>
       <hr />

@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import styles from "./Button.module.css";
+import styles from "./button.module.css";
 import { ButtonProps } from "./button.types";
 
 const Button: FC<ButtonProps> = ({
