@@ -5,6 +5,7 @@ import "./styles.css";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
       </body>
       <GoogleTagManager gtmId="GTM-KT6R8H64" />
+      <SpeedInsights />
     </html>
   );
 }

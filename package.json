@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.0.4",
+    "@vercel/speed-insights": "^1.0.3",
     "algoliasearch": "^4.22.1",
     "contentful": "^10.6.16",
     "highlight.js": "^11.9.0",
