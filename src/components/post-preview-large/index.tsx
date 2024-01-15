@@ -4,6 +4,7 @@ import PostPreviewLargeProps from "./post-preview-large.types";
 import { FC } from "react";
 import Button from "../button";
 import Link from "next/link";
+import contentfulImageLoader from "@/utils/image-loader";
 
 const PostPreviewLarge: FC<PostPreviewLargeProps> = ({
   imageUrl,
@@ -16,8 +17,9 @@ const PostPreviewLarge: FC<PostPreviewLargeProps> = ({
     <Link href={slug}>
       <div className={styles.imageContainer}>
         <Image
+          loader={contentfulImageLoader}
           className={styles.image}
-          src={`https://${imageUrl}`}
+          src={imageUrl}
           alt={altText}
           fill
         />
