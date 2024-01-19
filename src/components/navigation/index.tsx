@@ -26,6 +26,9 @@ const Navigation = () => {
           <InstantSearchNext
             searchClient={algoliaClient}
             indexName="blog-posts"
+            future={{
+              preserveSharedStateOnUnmount: true,
+            }}
           >
             <Autocomplete />
           </InstantSearchNext>

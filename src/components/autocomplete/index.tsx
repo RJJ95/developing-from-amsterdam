@@ -53,7 +53,7 @@ export function Autocomplete(props: UseAutocompleteProps) {
                   <h6>{hit.fields.blogTitle["en-US"]}</h6>
                 </Link>
                 <p className={styles.description}>
-                  {hit.fields.subTitle["en-US"]}
+                  {hit.fields.introduction["en-US"]}
                 </p>
               </li>
             ))

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import "./styles.css";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -20,12 +19,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Navigation />
+        <Suspense>
+          <Navigation />
+        </Suspense>
         {children}
         <Footer />
       </body>
       <GoogleTagManager gtmId="GTM-KT6R8H64" />
-      <SpeedInsights />
     </html>
   );
 }

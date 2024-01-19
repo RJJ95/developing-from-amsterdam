@@ -242,6 +242,7 @@ a {
 
 p {
   text-align: justify;
+  line-height: 1.5;
 }
 
 label {
@@ -285,18 +286,6 @@ section {
     line-height: 1.2;
     margin-bottom: 10px;
   }
-}
-
-pre {
-  margin-top: 20px;
-  line-height: 1.7;
-  padding: 10px;
-  background-color: var(--color-basic-200);
-  border-radius: 4px;
-}
-
-.hljs {
-  background-color: var(--color-basic-200) !important;
 }
 
 hr {

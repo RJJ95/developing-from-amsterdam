@@ -1,20 +1,49 @@
 import Lead from "@/components/lead";
 import client from "@/contentful/client";
 import styles from "./blog-post.module.css";
-import { DateTime } from "luxon";
 import Image from "next/image";
 import { Asset } from "contentful";
 import "highlight.js/styles/intellij-light.css";
 import PostPreviewSmall from "@/components/post-preview-small";
 import Tag from "@/components/tag";
-import { markdownToHtml } from "@/utils/markdown-to-html";
 import contentfulImageLoader from "@/utils/image-loader";
+import { cache } from "react";
+import Markdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import rehypeRaw from "rehype-raw";
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+function removeQuotes(str: string) {
+  if (str.startsWith('"') && str.endsWith('"')) {
+    return str.substring(1, str.length - 1);
+  }
+  return str;
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { items } = await client.getEntries({
+    content_type: "blog-post",
+    "fields.slug": params.slug,
+    select: ["fields.blogTitle", "fields.seoDescription"],
+  });
+
+  return {
+    title: items[0].fields.blogTitle,
+    description: removeQuotes(items[0].fields.seoDescription as string),
+  };
+}
 
 export async function generateStaticParams() {
   const { items } = await client.getEntries({
     content_type: "blog-post",
-    order: ["sys.createdAt"],
-    limit: 10,
+    select: ["fields.slug"],
+    limit: 1000,
   });
 
   return items.map((item) => ({
@@ -22,23 +51,29 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { items } = await client.getEntries({
+const getData = cache(async (slug: string) => {
+  const {
+    items: [blogPost],
+  } = await client.getEntries({
     content_type: "blog-post",
-    "fields.slug": params.slug,
+    "fields.slug": slug,
   });
 
-  const [post] = items;
-
-  const relatedPosts = await client.getEntries({
+  const { items: relatedPosts } = await client.getEntries({
     content_type: "blog-post",
-    "metadata.tags.sys.id[in]": [post.metadata.tags[0].sys.id],
+    "metadata.tags.sys.id[in]": [blogPost.metadata.tags[0].sys.id],
+    "fields.slug[nin]": slug,
     limit: 4,
   });
+
+  return {
+    blogPost,
+    relatedPosts,
+  };
+});
+
+export default async function BlogPost({ params }: Props) {
+  const { blogPost, relatedPosts } = await getData(params.slug);
 
   const readingTime = (text: string): string => {
     const wordCount = text.split(" ").length;
@@ -46,49 +81,114 @@ export default async function BlogPost({
     return `${minutes} minute read`;
   };
 
+  const author = JSON.parse(
+    (blogPost.fields.image! as Asset).fields.description as string
+  );
+
   return (
     <main>
       <section>
         <div className={styles.tagContainer}>
-          {post.metadata.tags.map((tag) => (
+          {blogPost.metadata.tags.map((tag) => (
             <Tag key={tag.sys.id} name={tag.sys.id} />
           ))}
         </div>
-        <h1 className={styles.postHeader}>{post.fields.blogTitle as string}</h1>
-        <Lead>{post.fields.subTitle as string}</Lead>
-        <div className={styles.metadata}>
-          <label>{DateTime.fromISO(post.sys.createdAt).toISODate()}</label>
-          <label>{post.fields.level as string}</label>
-          <label>{readingTime(post.fields.body as string)}</label>
-        </div>
-        <Image
-          loader={contentfulImageLoader}
-          className={styles.image}
-          src={(post.fields.image! as Asset).fields.file!.url as string}
-          alt={post.fields.description as string}
-          width={680}
-          height={200}
-        />
-        <div
-          className={styles.body}
-          dangerouslySetInnerHTML={{
-            __html: await markdownToHtml(post.fields.body as string),
+
+        <Markdown
+          rehypePlugins={[rehypeRaw]}
+          skipHtml={false}
+          components={{
+            h2({ children }) {
+              return <h2 className={styles.paragraphHeader}>{children}</h2>;
+            },
+            h3({ children }) {
+              return <h3 className={styles.paragraphHeader}>{children}</h3>;
+            },
+            p({ children }) {
+              if (children?.toString().includes("Hi there, friend!")) {
+                return (
+                  <div className={styles.introContainer}>
+                    <Lead>{children}</Lead>
+                    <div className={styles.metadata}>
+                      <label>{blogPost.fields.creationDate as string}</label>
+                      <label>{blogPost.fields.level as string} level</label>
+                      <label>
+                        {readingTime(blogPost.fields.body as string)}
+                      </label>
+                    </div>
+                  </div>
+                );
+              } else {
+                return <p className={styles.body}>{children}</p>;
+              }
+            },
+            code(props) {
+              const { children, className, node, ...rest } = props;
+              const match = /language-(\w+)/.exec(className || "");
+              return match ? (
+                <SyntaxHighlighter
+                  language={match[1]}
+                  style={oneLight}
+                  codeTagProps={{ className: styles.code }}
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
+              ) : (
+                <code {...rest} className={className}>
+                  {children}
+                </code>
+              );
+            },
+            img: () => (
+              <div className={styles.imageContainer}>
+                <a
+                  href={
+                    author.author ??
+                    `https://unsplash.com/s/users/${author.firstName}-${author.lastName}`
+                  }
+                  target="_blank"
+                >
+                  <Image
+                    loader={contentfulImageLoader}
+                    src={
+                      (blogPost.fields.image! as Asset).fields.file!
+                        .url as string
+                    }
+                    alt={author.alt_description}
+                    width={680}
+                    height={500}
+                    style={{
+                      height: "auto",
+                    }}
+                  />
+                  {author.authorFirstName && (
+                    <p className={styles.photoCaption}>
+                      Photo by {author.authorFirstName} {author.authorLastName}
+                    </p>
+                  )}
+                </a>
+              </div>
+            ),
           }}
-        />
+        >
+          {blogPost.fields.body as string}
+        </Markdown>
       </section>
       <hr />
       <section>
         <h4>More like this</h4>
         <div className={styles.related}>
-          {relatedPosts.items.map((item) => (
+          {relatedPosts.map((item) => (
             <PostPreviewSmall
               key={item.sys.id}
               imageUrl={
                 (item.fields.image! as Asset).fields.file!.url as string
               }
               title={item.fields.blogTitle as string}
-              previewText={item.fields.subTitle as string}
-              altText={item.fields.description as string}
+              previewText={item.fields.introduction as string}
+              altText={
+                (item.fields.image! as Asset).fields.description as string
+              }
               slug={item.fields.slug as string}
             />
           ))}

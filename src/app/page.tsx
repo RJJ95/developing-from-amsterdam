@@ -3,8 +3,8 @@ import client from "@/contentful/client";
 import Lead from "@/components/lead";
 import javascriptLogo from "@/assets/images/javascript-logo.svg";
 import kotlinLogo from "@/assets/images/kotlin-logo.svg";
-
-import styles from "./home.module.css";
+import reactLogo from "@/assets/images/react-logo.svg";
+import typescriptLogo from "@/assets/images/typescript-logo.svg";
 import PostNavigation from "@/components/post-navigation";
 
 const getData = cache(async () => {
@@ -26,15 +26,30 @@ const getData = cache(async () => {
     limit: 10,
   });
 
+  const reactPosts = await client.getEntries({
+    content_type: "blog-post",
+    "metadata.tags.sys.id[in]": ["react"],
+    limit: 10,
+  });
+
+  const typescriptPosts = await client.getEntries({
+    content_type: "blog-post",
+    "metadata.tags.sys.id[in]": ["typescript"],
+    limit: 10,
+  });
+
   return {
     javascriptPosts,
     kotlinPosts,
     azurePosts,
+    reactPosts,
+    typescriptPosts,
   };
 });
 
 export default async function Home() {
-  const { javascriptPosts, kotlinPosts, azurePosts } = await getData();
+  const { javascriptPosts, kotlinPosts, reactPosts, typescriptPosts } =
+    await getData();
 
   return (
     <main>
@@ -56,6 +71,13 @@ export default async function Home() {
         title="Kotlin"
         logo={kotlinLogo}
         items={kotlinPosts.items}
+        background
+      />
+      <PostNavigation title="React" logo={reactLogo} items={reactPosts.items} />
+      <PostNavigation
+        title="Typescript"
+        logo={typescriptLogo}
+        items={typescriptPosts.items}
         background
       />
     </main>

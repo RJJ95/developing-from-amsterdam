@@ -9,7 +9,7 @@ import styles from "./about.module.css";
 const getData = cache(async () => {
   const { items } = await client.getEntries<BlogPost>({
     content_type: "blog-post",
-    order: ["sys.createdAt"],
+    order: ["-sys.createdAt"],
     limit: 10,
   });
 
@@ -35,7 +35,19 @@ export default async function About() {
           more efficient. Whether you&apos;re a seasoned coder or just starting,
           join me in exploring the limitless possibilities of code!
         </Lead>
+        <div className={styles.hrContainer}>
+          <hr />
+        </div>
+        <h2>Photos</h2>
+        <Lead>
+          You might see some strange images above my articles. That&apos;s
+          because I find most depictions of software development to be extremely
+          boring. That&apos;s why I want to give a platform to photographers on
+          my blog. The photo&apos;s link to either the portfolio of the artist,
+          their page on Unsplash, or just Unsplash.
+        </Lead>
       </section>
+
       <hr />
       <section>
         <h1>Latest articles</h1>
@@ -47,7 +59,7 @@ export default async function About() {
                 (item.fields.image! as Asset).fields.file!.url as string
               }
               title={item.fields.blogTitle as string}
-              previewText={item.fields.subTitle as string}
+              previewText={item.fields.introduction as string}
               altText={
                 (item.fields.image! as Asset).fields.description as string
               }

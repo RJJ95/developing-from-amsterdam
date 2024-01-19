@@ -7,12 +7,14 @@
   font-weight: 400;
   font-size: var(--s1-size);
   line-height: var(--s1-line-height);
+  margin-top: 10px;
 }
 
 .imageContainer {
   width: var(--main-width);
   height: 200px;
   position: relative;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {

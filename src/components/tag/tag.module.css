@@ -10,6 +10,16 @@
   background: #ffd600;
 }
 
+.react {
+  background: #087da4;
+  color: var(--color-typography-alternative);
+}
+
+.typescript {
+  background-color: #3178c6;
+  color: var(--color-typography-alternative);
+}
+
 .kotlin {
   background: linear-gradient(
     43.78deg,

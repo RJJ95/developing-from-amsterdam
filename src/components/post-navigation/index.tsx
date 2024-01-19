@@ -69,8 +69,10 @@ const PostNavigation: FC<PostNavigationProps> = ({
                 (item.fields.image! as Asset).fields.file!.url as string
               }
               title={item.fields.blogTitle as string}
-              previewText={item.fields.subTitle as string}
-              altText={item.fields.description as string}
+              previewText={item.fields.introduction as string}
+              altText={
+                (item.fields.image! as Asset).fields.description as string
+              }
               slug={item.fields.slug as string}
             />
           </div>
