@@ -154,7 +154,7 @@ export default async function BlogPost({ params }: Props) {
                       (blogPost.fields.image! as Asset).fields.file!
                         .url as string
                     }
-                    alt={author.alt_description}
+                    alt={author.altText}
                     width={680}
                     height={500}
                     style={{
