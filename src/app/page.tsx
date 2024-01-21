@@ -12,8 +12,9 @@ import { WebSite, WithContext } from "schema-dts";
 export const metadata: Metadata = {
   title: "Developing from Amsterdam",
   description:
-    "A blog site to help other software engineers in their daily coding challenges.",
-  keywords: "developing, amsterdam, software engineers, coding",
+    "Explore a comprehensive guide by an Amsterdam-based developer, featuring expert tips, coding insights, and practical advice for software engineers to tackle daily coding challenges.",
+  keywords:
+    "Amsterdam developer, software engineering, coding challenges, programming tips, developer blog, coding insights, JavaScript, React, Java, Kubernetes",
   applicationName: "Developing from Amsterdam Blog",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
