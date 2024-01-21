@@ -29,7 +29,12 @@ export const metadata: Metadata = {
     siteName: "Developing from Amsterdam",
     locale: "en_US",
     type: "website",
-    images: [],
+    images: [
+      {
+        url: "https://images.ctfassets.net/tddme9p4n2wr/1LOal0mLZwj1JsTpAwqum8/14eb4baa0045596768de7fc1d9fac868/r20_DWxVivo?fm=webp&w=1080",
+        width: 1080,
+      },
+    ],
   },
 };
 
