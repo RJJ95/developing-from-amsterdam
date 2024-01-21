@@ -43,9 +43,9 @@
 }
 
 .outline {
-  background-color: var(--color-basic-transparent-016);
-  border: 1px solid var(--color-basic-600);
-  color: var(--color-basic-600);
+  background-color: var(--color-basic-transparent-008);
+  border: 1px solid var(--color-basic-700);
+  color: var(--color-basic-700);
 }
 
 .outline:hover {
