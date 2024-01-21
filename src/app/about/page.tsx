@@ -61,7 +61,7 @@ export default async function About() {
       <Head>
         <link
           rel="canonical"
-          href="http://www.developing-from-amsterdam.dev/about"
+          href="https://www.developing-from-amsterdam.dev/about"
         />
       </Head>
       <script

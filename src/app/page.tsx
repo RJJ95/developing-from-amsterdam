@@ -90,7 +90,10 @@ export default async function Home() {
   return (
     <main>
       <Head>
-        <link rel="canonical" href="http://www.developing-from-amsterdam.dev" />
+        <link
+          rel="canonical"
+          href="https://www.developing-from-amsterdam.dev"
+        />
       </Head>
       <script
         type="application/ld+json"

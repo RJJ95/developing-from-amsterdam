@@ -110,7 +110,7 @@ export default async function BlogPost({ params }: Props) {
       <Head>
         <link
           rel="canonical"
-          href={`http://www.developing-from-amsterdam.dev/${params.slug}`}
+          href={`https://www.developing-from-amsterdam.dev/${params.slug}`}
         />
       </Head>
       <script
