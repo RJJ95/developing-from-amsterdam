@@ -9,7 +9,7 @@ import { Metadata } from "next/types";
 import { WithContext, AboutPage } from "schema-dts";
 
 export const metadata: Metadata = {
-  title: "Developing from Amsterdam",
+  title: "About | Developing from Amsterdam",
   description:
     "A blog site to help other software engineers in their daily coding challenges.",
   keywords:
@@ -20,6 +20,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.developing-from-amsterdam.dev/about"),
   alternates: {
     canonical: "https://www.developing-from-amsterdam.dev/about",
+  },
+  openGraph: {
+    title: "About | Developing from Amsterdam",
+    description:
+      "A blog site to help other software engineers in their daily coding challenges.",
+    url: "https://www.developing-from-amsterdam.dev/about",
+    siteName: "Developing from Amsterdam",
+    locale: "en_US",
+    type: "website",
   },
 };
 

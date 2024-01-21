@@ -47,6 +47,15 @@ export async function generateMetadata({ params }: Props) {
     alternates: {
       canonical: `https://www.developing-from-amsterdam.dev/${params.slug}`,
     },
+    openGraph: {
+      title: items[0].fields.blogTitle,
+      description:
+        "A blog site to help other software engineers in their daily coding challenges.",
+      url: `https://www.developing-from-amsterdam.dev/${params.slug}`,
+      siteName: "Developing from Amsterdam",
+      locale: "en_US",
+      type: "website",
+    },
   };
 }
 
