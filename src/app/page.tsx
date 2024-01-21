@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   title: "Developing from Amsterdam",
   description:
     "A blog site to help other software engineers in their daily coding challenges.",
+  keywords:
+    "blog, software development, javascript, typescript, kotlin, azure, home",
+  applicationName: "Developing from Amsterdam Blog",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  metadataBase: new URL("https://www.developing-from-amsterdam.dev/"),
 };
 
 const getData = cache(async () => {

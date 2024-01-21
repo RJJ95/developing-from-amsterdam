@@ -30,12 +30,19 @@ export async function generateMetadata({ params }: Props) {
   const { items } = await client.getEntries({
     content_type: "blog-post",
     "fields.slug": params.slug,
-    select: ["fields.blogTitle", "fields.seoDescription"],
+    select: ["fields.blogTitle", "fields.seoDescription", "fields.keywords"],
   });
 
   return {
     title: items[0].fields.blogTitle,
     description: removeQuotes(items[0].fields.seoDescription as string),
+    keywords: items[0].fields.keywords,
+    applicationName: "Developing from Amsterdam Blog",
+    generator: "Next.js",
+    referrer: "origin-when-cross-origin",
+    metadataBase: new URL(
+      `https://www.developing-from-amsterdam.dev/${params.slug}`
+    ),
   };
 }
 

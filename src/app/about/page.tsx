@@ -5,6 +5,19 @@ import { cache } from "react";
 import Lead from "@/components/lead";
 import PostPreviewLarge from "@/components/post-preview-large";
 import styles from "./about.module.css";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: "Developing from Amsterdam",
+  description:
+    "A blog site to help other software engineers in their daily coding challenges.",
+  keywords:
+    "blog, software development, javascript, typescript, kotlin, azure, about",
+  applicationName: "Developing from Amsterdam Blog",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  metadataBase: new URL("https://www.developing-from-amsterdam.dev/about"),
+};
 
 const getData = cache(async () => {
   const { items } = await client.getEntries<BlogPost>({
