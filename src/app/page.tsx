@@ -6,6 +6,13 @@ import kotlinLogo from "@/assets/images/kotlin-logo.svg";
 import reactLogo from "@/assets/images/react-logo.svg";
 import typescriptLogo from "@/assets/images/typescript-logo.svg";
 import PostNavigation from "@/components/post-navigation";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Developing from Amsterdam",
+  description:
+    "A blog site to help other software engineers in their daily coding challenges.",
+};
 
 const getData = cache(async () => {
   const javascriptPosts = await client.getEntries({
