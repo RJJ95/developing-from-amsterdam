@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Input from "../input";
 import useAutocomplete, { UseAutocompleteProps } from "./use-autocomplete";
 import styles from "./autocomplete.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { debounce } from "lodash";
 
 export function Autocomplete(props: UseAutocompleteProps) {
   const [showHits, setShowHits] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
   const { indices, currentRefinement, refine } = useAutocomplete(props);
   const pathname = usePathname();
@@ -21,6 +23,22 @@ export function Autocomplete(props: UseAutocompleteProps) {
     }
   };
 
+  // Debounce delay in milliseconds
+  const debounceDelay = 300; // You can adjust this value
+
+  // Debounced refine function
+  const debouncedRefine = useCallback(
+    debounce((newValue) => {
+      refine(newValue);
+    }, debounceDelay),
+    [refine, debounceDelay]
+  );
+
+  // Call debounced refine when inputValue changes
+  useEffect(() => {
+    debouncedRefine(inputValue);
+  }, [inputValue, debouncedRefine]);
+
   useEffect(() => {
     document.addEventListener("focusout", handleFocusOut);
     return () => {
@@ -30,14 +48,14 @@ export function Autocomplete(props: UseAutocompleteProps) {
 
   useEffect(() => {
     refine("");
-  }, [pathname, refine]);
+  }, [pathname]);
 
   return (
     <div ref={containerRef} className={styles.container}>
       <Input
         type="text"
-        value={currentRefinement}
-        onChange={refine}
+        value={inputValue}
+        onChange={setInputValue}
         placeholder="What's your question about?"
         disabled={false}
         id="autocomplete-input"

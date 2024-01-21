@@ -5,6 +5,7 @@ import javascriptLogo from "@/assets/images/javascript-logo.svg";
 import kotlinLogo from "@/assets/images/kotlin-logo.svg";
 import reactLogo from "@/assets/images/react-logo.svg";
 import typescriptLogo from "@/assets/images/typescript-logo.svg";
+import azureLogo from "@/assets/images/azure-logo.svg";
 import PostNavigation from "@/components/post-navigation";
 import type { Metadata } from "next";
 import { WebSite, WithContext } from "schema-dts";
@@ -80,8 +81,13 @@ const getData = cache(async () => {
 });
 
 export default async function Home() {
-  const { javascriptPosts, kotlinPosts, reactPosts, typescriptPosts } =
-    await getData();
+  const {
+    javascriptPosts,
+    kotlinPosts,
+    reactPosts,
+    typescriptPosts,
+    azurePosts,
+  } = await getData();
 
   const jsonLd: WithContext<WebSite> = {
     "@context": "https://schema.org",
@@ -140,6 +146,7 @@ export default async function Home() {
         items={typescriptPosts.items}
         background
       />
+      <PostNavigation title="Azure" logo={azureLogo} items={azurePosts.items} />
     </main>
   );
 }

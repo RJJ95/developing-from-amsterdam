@@ -13,6 +13,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
 import { WithContext, BlogPosting } from "schema-dts";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -38,6 +39,10 @@ export async function generateMetadata({ params }: Props) {
       "fields.image",
     ],
   });
+
+  if (!items.length) {
+    notFound();
+  }
 
   return {
     title: items[0].fields.blogTitle,
@@ -104,6 +109,10 @@ const getData = cache(async (slug: string) => {
 
 export default async function BlogPost({ params }: Props) {
   const { blogPost, relatedPosts } = await getData(params.slug);
+
+  if (!blogPost) {
+    notFound();
+  }
 
   const readingTime = (text: string): string => {
     const wordCount = text.split(" ").length;
