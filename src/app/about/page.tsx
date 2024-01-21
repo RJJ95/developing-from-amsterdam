@@ -6,6 +6,7 @@ import Lead from "@/components/lead";
 import PostPreviewLarge from "@/components/post-preview-large";
 import styles from "./about.module.css";
 import { Metadata } from "next/types";
+import { WithContext, AboutPage } from "schema-dts";
 
 export const metadata: Metadata = {
   title: "Developing from Amsterdam",
@@ -32,8 +33,34 @@ const getData = cache(async () => {
 export default async function About() {
   const items = await getData();
 
+  const jsonLd: WithContext<AboutPage> = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Developing from Amsterdam Blog",
+    url: "http://www.developing-from-amsterdam.dev/about",
+    potentialAction: [
+      {
+        "@type": "SearchAction",
+        target: "http://www.developing-from-amsterdam.dev/{search_term_string}",
+        query: "required name=search_term_string",
+      },
+      {
+        "@type": "ReadAction",
+        target: "http://www.developing-from-amsterdam.dev/{search_term_string}",
+      },
+      {
+        "@type": "ViewAction",
+        target: "http://www.developing-from-amsterdam.dev/",
+      },
+    ],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section>
         <h1>Developing from Amsterdam</h1>
         <Lead>

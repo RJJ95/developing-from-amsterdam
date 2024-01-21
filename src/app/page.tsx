@@ -7,6 +7,7 @@ import reactLogo from "@/assets/images/react-logo.svg";
 import typescriptLogo from "@/assets/images/typescript-logo.svg";
 import PostNavigation from "@/components/post-navigation";
 import type { Metadata } from "next";
+import { WebSite, WithContext } from "schema-dts";
 
 export const metadata: Metadata = {
   title: "Developing from Amsterdam",
@@ -64,8 +65,34 @@ export default async function Home() {
   const { javascriptPosts, kotlinPosts, reactPosts, typescriptPosts } =
     await getData();
 
+  const jsonLd: WithContext<WebSite> = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Developing from Amsterdam Blog",
+    url: "http://www.developing-from-amsterdam.dev",
+    potentialAction: [
+      {
+        "@type": "SearchAction",
+        target: "http://www.developing-from-amsterdam.dev/{search_term_string}",
+        query: "required name=search_term_string",
+      },
+      {
+        "@type": "ReadAction",
+        target: "http://www.developing-from-amsterdam.dev/{search_term_string}",
+      },
+      {
+        "@type": "ViewAction",
+        target: "http://www.developing-from-amsterdam.dev/about",
+      },
+    ],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section>
         <h1>Welcome!</h1>
         <Lead>

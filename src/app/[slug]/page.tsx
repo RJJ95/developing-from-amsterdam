@@ -12,6 +12,7 @@ import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
+import { WithContext, BlogPosting } from "schema-dts";
 
 type Props = {
   params: {
@@ -92,8 +93,23 @@ export default async function BlogPost({ params }: Props) {
     (blogPost.fields.image! as Asset).fields.description as string
   );
 
+  const jsonLd: WithContext<BlogPosting> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    name: blogPost.fields!.blogTitle as string,
+    url: `http://www.developing-from-amsterdam.dev/${params.slug}`,
+    headline: blogPost.fields!.blogTitle as string,
+    description: blogPost.fields!.seoDescription as string,
+    datePublished: blogPost.fields!.creationDate as string,
+    image: (blogPost.fields.image! as Asset).fields.file!.url as string,
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section>
         <div className={styles.tagContainer}>
           {blogPost.metadata.tags.map((tag) => (
