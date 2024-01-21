@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "A blog site to help other software engineers in their daily coding challenges.",
   keywords:
-    "blog, software development, javascript, typescript, kotlin, azure, about",
+    "blog, software engineers, javascript, typescript, kotlin, azure, about, developing, amsterdam",
   applicationName: "Developing from Amsterdam Blog",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
