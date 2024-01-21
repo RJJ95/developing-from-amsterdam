@@ -31,7 +31,12 @@ export async function generateMetadata({ params }: Props) {
   const { items } = await client.getEntries({
     content_type: "blog-post",
     "fields.slug": params.slug,
-    select: ["fields.blogTitle", "fields.seoDescription", "fields.keywords"],
+    select: [
+      "fields.blogTitle",
+      "fields.seoDescription",
+      "fields.keywords",
+      "fields.image",
+    ],
   });
 
   return {
@@ -55,6 +60,11 @@ export async function generateMetadata({ params }: Props) {
       siteName: "Developing from Amsterdam",
       locale: "en_US",
       type: "website",
+      images: [
+        {
+          url: (items[0].fields.image! as Asset).fields.file!.url as string,
+        },
+      ],
     },
   };
 }

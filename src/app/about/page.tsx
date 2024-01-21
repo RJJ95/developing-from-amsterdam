@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     siteName: "Developing from Amsterdam",
     locale: "en_US",
     type: "website",
+    images: [],
   },
 };
 

@@ -8,7 +8,6 @@ import typescriptLogo from "@/assets/images/typescript-logo.svg";
 import PostNavigation from "@/components/post-navigation";
 import type { Metadata } from "next";
 import { WebSite, WithContext } from "schema-dts";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Developing from Amsterdam",
@@ -30,6 +29,7 @@ export const metadata: Metadata = {
     siteName: "Developing from Amsterdam",
     locale: "en_US",
     type: "website",
+    images: [],
   },
 };
 
