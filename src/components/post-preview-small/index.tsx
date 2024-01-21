@@ -20,8 +20,11 @@ const PostPreviewSmall: FC<PostPreviewSmallProps> = ({
         className={styles.image}
         src={imageUrl}
         alt={altText}
-        width={330}
-        height={100}
+        width={300}
+        height={300}
+        style={{
+          height: "auto",
+        }}
       />
     </Link>
 

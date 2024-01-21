@@ -23,7 +23,7 @@ const PostNavigation: FC<PostNavigationProps> = ({
 }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const scrollAmount = 380;
+  const scrollAmount = 350;
 
   const handleNext = () => {
     setScrollPosition((prevPosition) => prevPosition - scrollAmount);
@@ -38,7 +38,7 @@ const PostNavigation: FC<PostNavigationProps> = ({
       <div className={styles.sectionHeader}>
         <div className={styles.languageHeader}>
           <Image src={logo} alt={`${title}-logo`} />
-          <h4>{title}</h4>
+          <h2>{title}</h2>
         </div>
         <div>
           <button

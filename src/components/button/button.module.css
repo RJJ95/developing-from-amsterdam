@@ -43,7 +43,7 @@
 }
 
 .outline {
-  background-color: var(--color-basic-transparent-008);
+  background-color: var(--color-basic-transparent-016);
   border: 1px solid var(--color-basic-600);
   color: var(--color-basic-600);
 }
