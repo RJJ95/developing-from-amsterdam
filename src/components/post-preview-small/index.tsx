@@ -30,12 +30,12 @@ const PostPreviewSmall: FC<PostPreviewSmallProps> = ({
       />
     </Link>
 
-    <Link href={`https://www.${slug}`}>
+    <Link href={`https://www.developing-from-amsterdam.dev/${slug}`}>
       <h5>{title}</h5>
     </Link>
 
     <p className={styles.description}>{previewText}</p>
-    <Link href={`https://www.${slug}`}>
+    <Link href={`https://www.developing-from-amsterdam.dev/${slug}`}>
       <Button text="Read" variant="outline" size="tiny" />
     </Link>
   </div>
