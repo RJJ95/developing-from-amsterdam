@@ -8,6 +8,7 @@ import typescriptLogo from "@/assets/images/typescript-logo.svg";
 import PostNavigation from "@/components/post-navigation";
 import type { Metadata } from "next";
 import { WebSite, WithContext } from "schema-dts";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Developing from Amsterdam",
@@ -88,6 +89,9 @@ export default async function Home() {
 
   return (
     <main>
+      <Head>
+        <link rel="canonical" href="http://www.developing-from-amsterdam.dev" />
+      </Head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

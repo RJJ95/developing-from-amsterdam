@@ -7,6 +7,7 @@ import PostPreviewLarge from "@/components/post-preview-large";
 import styles from "./about.module.css";
 import { Metadata } from "next/types";
 import { WithContext, AboutPage } from "schema-dts";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Developing from Amsterdam",
@@ -57,6 +58,12 @@ export default async function About() {
 
   return (
     <main>
+      <Head>
+        <link
+          rel="canonical"
+          href="http://www.developing-from-amsterdam.dev/about"
+        />
+      </Head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
