@@ -205,6 +205,7 @@ export default async function BlogPost({ params }: Props) {
                     style={{
                       height: "auto",
                     }}
+                    priority
                   />
                   {author.authorFirstName && (
                     <p className={styles.photoCaption}>
