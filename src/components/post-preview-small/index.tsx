@@ -15,7 +15,7 @@ const PostPreviewSmall: FC<PostPreviewSmallProps> = ({
   priority,
 }) => (
   <div className={styles.container}>
-    <Link href={`https://www.developing-from-amsterdam.dev/${slug}`}>
+    <Link href={`/${slug}`}>
       <Image
         priority={priority ?? false}
         loader={contentfulImageLoader}
@@ -30,12 +30,12 @@ const PostPreviewSmall: FC<PostPreviewSmallProps> = ({
       />
     </Link>
 
-    <Link href={`https://www.developing-from-amsterdam.dev/${slug}`}>
+    <Link href={`/${slug}`}>
       <h5>{title}</h5>
     </Link>
 
     <p className={styles.description}>{previewText}</p>
-    <Link href={`https://www.developing-from-amsterdam.dev/${slug}`}>
+    <Link href={`/${slug}`}>
       <Button text="Read" variant="outline" size="tiny" />
     </Link>
   </div>
