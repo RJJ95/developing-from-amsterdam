@@ -8,6 +8,7 @@ export default function contentfulImageLoader({
 }: ImageLoaderProps) {
   const url = new URL(`https://${src}`);
   url.searchParams.set("w", width.toString());
+  url.searchParams.set("fm", "webp");
 
   return url.href;
 }

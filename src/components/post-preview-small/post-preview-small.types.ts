@@ -4,6 +4,7 @@ interface PostPreviewSmallProps {
   previewText: string;
   altText: string;
   slug: string;
+  priority?: boolean;
 }
 
 export default PostPreviewSmallProps;

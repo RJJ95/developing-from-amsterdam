@@ -73,11 +73,13 @@ export default async function Home() {
         title="Javascript"
         logo={javascriptLogo}
         items={javascriptPosts.items}
+        priority={true}
       />
       <PostNavigation
         title="Kotlin"
         logo={kotlinLogo}
         items={kotlinPosts.items}
+        priority={true}
         background
       />
       <PostNavigation title="React" logo={reactLogo} items={reactPosts.items} />

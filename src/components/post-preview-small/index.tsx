@@ -12,10 +12,12 @@ const PostPreviewSmall: FC<PostPreviewSmallProps> = ({
   title,
   previewText,
   slug,
+  priority,
 }) => (
   <div className={styles.container}>
     <Link href={slug}>
       <Image
+        priority={priority ?? false}
         loader={contentfulImageLoader}
         className={styles.image}
         src={imageUrl}

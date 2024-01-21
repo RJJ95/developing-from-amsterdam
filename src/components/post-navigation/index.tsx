@@ -13,6 +13,7 @@ interface PostNavigationProps {
   title: string;
   items: Entry<EntrySkeletonType, undefined, string>[];
   background?: boolean;
+  priority?: boolean;
 }
 
 const PostNavigation: FC<PostNavigationProps> = ({
@@ -20,6 +21,7 @@ const PostNavigation: FC<PostNavigationProps> = ({
   items,
   title,
   background,
+  priority,
 }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -65,6 +67,7 @@ const PostNavigation: FC<PostNavigationProps> = ({
           <div className={styles.postWrapper} key={item.sys.id}>
             <PostPreviewSmall
               key={item.sys.id}
+              priority={priority}
               imageUrl={
                 (item.fields.image! as Asset).fields.file!.url as string
               }
