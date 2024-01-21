@@ -13,7 +13,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
 import { WithContext, BlogPosting } from "schema-dts";
-import Head from "next/head";
 
 type Props = {
   params: {
@@ -45,6 +44,9 @@ export async function generateMetadata({ params }: Props) {
     metadataBase: new URL(
       `https://www.developing-from-amsterdam.dev/${params.slug}`
     ),
+    alternates: {
+      canonical: `https://www.developing-from-amsterdam.dev/${params.slug}`,
+    },
   };
 }
 
@@ -107,12 +109,6 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <main>
-      <Head>
-        <link
-          rel="canonical"
-          href={`https://www.developing-from-amsterdam.dev/${params.slug}`}
-        />
-      </Head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   metadataBase: new URL("https://www.developing-from-amsterdam.dev/"),
+  alternates: {
+    canonical: "https://www.developing-from-amsterdam.dev/",
+  },
 };
 
 const getData = cache(async () => {
@@ -89,12 +92,6 @@ export default async function Home() {
 
   return (
     <main>
-      <Head>
-        <link
-          rel="canonical"
-          href="https://www.developing-from-amsterdam.dev"
-        />
-      </Head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
