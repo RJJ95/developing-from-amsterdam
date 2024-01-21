@@ -15,7 +15,7 @@ const PostPreviewSmall: FC<PostPreviewSmallProps> = ({
   priority,
 }) => (
   <div className={styles.container}>
-    <Link href={`https://www.${slug}`}>
+    <Link href={`https://www.developing-from-amsterdam/${slug}`}>
       <Image
         priority={priority ?? false}
         loader={contentfulImageLoader}
