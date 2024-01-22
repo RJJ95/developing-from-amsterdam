@@ -12,7 +12,7 @@ export default async function NotFound() {
           alt="white wooden table with green and black wall decor"
           src="https://images.ctfassets.net/tddme9p4n2wr/5r9tm0iqpWqzppViDQzeEa/ddb3c421e74ebf12e10219bb63e159d7/4a7K9tI_XFs?fm=webp&w=1080"
         />
-        <h1>Oh no! That's a 4-oh-4!</h1>
+        <h1>Oh no! That&apos;s a 4-oh-4!</h1>
         <p
           style={{
             marginBottom: "20px",
